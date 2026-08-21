@@ -1,0 +1,89 @@
+name: Bug report
+description: Report something that isn't working correctly
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve KhelZon. Please search [existing issues](https://github.com/pradipNP/khelzon/issues) first.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the bug
+      placeholder: e.g. Memory Matrix shows only one card on mobile Safari
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce the behavior?
+      placeholder: |
+        1. Open http://localhost:8080
+        2. Go to Arcade → Memory Matrix
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: What should have happened instead?
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser & version
+      placeholder: e.g. Chrome 120, Firefox 121, Safari iOS 17
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: e.g. Windows 11, macOS 14, Android 14
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Lobby / navigation
+        - A specific game
+        - Scores / player profiles
+        - Theme / UI
+        - PWA / offline
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: game
+    attributes:
+      label: Game name (if applicable)
+      placeholder: e.g. Snake Rush
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or screen recording
+      description: Drag & drop images or paste links
+      placeholder: Optional but very helpful
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues before opening this
+          required: true

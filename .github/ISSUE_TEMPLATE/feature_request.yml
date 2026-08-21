@@ -1,0 +1,58 @@
+name: Feature request
+description: Suggest an improvement to KhelZon
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea? We'd love to hear it. Check [CONTRIBUTING.md](https://github.com/pradipNP/khelzon/blob/main/CONTRIBUTING.md) if you plan to implement it yourself.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or motivation
+      description: What problem does this solve, or what experience would improve?
+      placeholder: e.g. Hard to find my high score across games
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe what you'd like to see
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any other approaches you thought about?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Lobby / navigation
+        - Games (general)
+        - Scores / profiles
+        - UI / theme
+        - PWA / offline
+        - Developer experience
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I am willing to submit a pull request for this
+          required: false

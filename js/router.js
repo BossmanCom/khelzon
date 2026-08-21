@@ -221,6 +221,16 @@ function renderAboutPage() {
 
         <h2>Original Design</h2>
         <p>KhelZon features its own warm indigo-and-saffron visual identity, original game implementations, and single-player-only focus — a distinct experience from other browser arcades.</p>
+
+        <h2>Open Source</h2>
+        <p>KhelZon is open source under the MIT license. Contributions, bug reports, and game ideas are welcome on GitHub.</p>
+        <p class="about-links">
+          <a href="https://github.com/pradipNP/khelzon" target="_blank" rel="noopener noreferrer">GitHub repository</a>
+          ·
+          <a href="https://github.com/pradipNP/khelzon/issues" target="_blank" rel="noopener noreferrer">Issues &amp; feature requests</a>
+          ·
+          <a href="https://github.com/pradipNP/khelzon/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">How to contribute</a>
+        </p>
       </div>
     </div>
   `;

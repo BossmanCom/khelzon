@@ -112,6 +112,16 @@ export function renderLobbyAbout() {
 
         <h3>Design</h3>
         <p>KhelZon uses its own warm indigo-and-saffron identity — a distinct solo arcade experience.</p>
+
+        <h3>Open source</h3>
+        <p>KhelZon is free and open source under the MIT license. Anyone can report bugs, suggest features, or contribute code on GitHub.</p>
+        <p class="lobby-about-links">
+          <a href="https://github.com/pradipNP/khelzon" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          ·
+          <a href="https://github.com/pradipNP/khelzon/issues" target="_blank" rel="noopener noreferrer">Issues</a>
+          ·
+          <a href="https://github.com/pradipNP/khelzon/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contributing</a>
+        </p>
       </div>
     </div>
   `);

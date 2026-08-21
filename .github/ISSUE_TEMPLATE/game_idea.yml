@@ -1,0 +1,71 @@
+name: New game idea
+description: Propose a new single-player game for the arcade
+title: "[Game]: "
+labels: ["game", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        KhelZon is **single-player only**. Proposals should work offline in the browser with vanilla JS (canvas or DOM).
+
+  - type: input
+    id: name
+    attributes:
+      label: Game name
+      placeholder: e.g. Pixel Dash
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Arcade
+        - Puzzle
+        - Strategy
+        - Action
+        - Reflex
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: concept
+    attributes:
+      label: Game concept
+      description: How does it play? What is the win/lose condition?
+    validations:
+      required: true
+
+  - type: textarea
+    id: controls
+    attributes:
+      label: Controls
+      description: Keyboard, mouse, touch — keep mobile in mind
+      placeholder: e.g. Arrow keys or swipe; tap to shoot
+    validations:
+      required: true
+
+  - type: textarea
+    id: scoring
+    attributes:
+      label: Scoring
+      description: How should high scores work?
+    validations:
+      required: false
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References (optional)
+      description: Similar games or mockups — for inspiration only, not copying
+      placeholder: Links or brief notes
+
+  - type: checkboxes
+    id: implement
+    attributes:
+      label: Implementation
+      options:
+        - label: I would like to implement this game myself
+          required: false

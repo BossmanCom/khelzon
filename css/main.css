@@ -1242,6 +1242,23 @@ body::before {
 
 .about-content li { margin-bottom: 0.4rem; }
 
+.about-links a,
+.lobby-about-links a {
+  color: var(--accent-saffron);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.about-links a:hover,
+.lobby-about-links a:hover {
+  text-decoration: underline;
+}
+
+.lobby-about-links {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
 /* ── Footer ── */
 .footer {
   text-align: center;
