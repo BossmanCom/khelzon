@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KhelZon — Single-player browser arcade. Play marble quests, snake, puzzles and more instantly." />
+  <meta name="theme-color" content="#1a1a2e" />
+  <title>KhelZon — Solo Arcade Playground</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/games.css" />
+</head>
+<body>
+  <!-- Splash Loader -->
+  <div id="splash" class="splash" aria-hidden="false">
+    <div class="splash-inner">
+      <div class="splash-orbs" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="splash-logo">Khel<span>Zon</span></div>
+      <p class="splash-tagline">Solo arcade · zero installs</p>
+      <div class="splash-bar"><div class="splash-bar-fill" id="splashFill"></div></div>
+      <p class="splash-status" id="splashStatus">Loading games…</p>
+    </div>
+  </div>
+
+  <!-- Lobby (post-splash welcome) -->
+  <div id="lobbyScreen" class="lobby-screen hidden" aria-hidden="true">
+    <div id="lobbyContent"></div>
+  </div>
+
+  <!-- App Shell -->
+  <div id="app" class="app hidden">
+    <header class="header">
+      <button class="header-menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+        <a href="#/lobby" class="header-brand" id="brandLink">
+        <span class="brand-icon">🎯</span>
+        <span class="brand-text">Khel<span>Zon</span></span>
+      </a>
+      <nav class="header-nav" id="headerNav">
+        <a href="#/arcade" class="nav-link" data-nav="arcade">Arcade</a>
+        <a href="#/players" class="nav-link" data-nav="players">Players</a>
+        <a href="#/stats" class="nav-link" data-nav="stats">My Stats</a>
+        <a href="#/about" class="nav-link" data-nav="about">About</a>
+      </nav>
+      <div class="header-actions">
+        <button class="user-badge" id="userBadge" type="button" title="Switch player">
+          <span class="user-badge-icon">👤</span>
+          <span class="user-badge-name">Player</span>
+        </button>
+        <span class="online-badge" id="onlineBadge" title="Connection status">
+          <span class="online-dot"></span>
+          <span class="online-text">Online</span>
+        </span>
+      </div>
+    </header>
+
+    <!-- Mobile Sidebar -->
+    <aside class="sidebar" id="sidebar" aria-hidden="true">
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+      <div class="sidebar-panel">
+        <div class="sidebar-header">
+          <span class="brand-text">Khel<span>Zon</span></span>
+          <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">&times;</button>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="#/arcade" class="sidebar-link" data-nav="arcade">🕹️ Arcade</a>
+          <a href="#/players" class="sidebar-link" data-nav="players">👤 Players</a>
+          <a href="#/stats" class="sidebar-link" data-nav="stats">📊 My Stats</a>
+          <a href="#/about" class="sidebar-link" data-nav="about">ℹ️ About</a>
+        </nav>
+        <p class="sidebar-footer">Scores saved per player on this device</p>
+      </div>
+    </aside>
+
+    <main class="main" id="mainContent">
+      <!-- Views injected by router -->
+    </main>
+
+    <footer class="footer">
+      <p>KhelZon &copy; 2026 · Scores saved locally per player · No cloud account needed</p>
+    </footer>
+  </div>
+
+  <!-- Player Switch Modal -->
+  <div class="user-modal" id="userModal" aria-hidden="true" role="dialog" aria-labelledby="userModalTitle">
+    <div class="user-modal-backdrop" id="userModalBackdrop"></div>
+    <div class="user-modal-panel">
+      <div class="user-modal-header">
+        <h2 id="userModalTitle">Switch Player</h2>
+        <button class="user-modal-close" id="userModalClose" aria-label="Close">&times;</button>
+      </div>
+      <p class="user-modal-desc">Each player keeps separate scores on this browser.</p>
+      <div class="user-list" id="userList"></div>
+      <form id="userCreateForm" class="user-create-form">
+        <input type="text" id="userNameInput" placeholder="New player name" maxlength="20" required autocomplete="off" />
+        <button type="submit" class="btn btn-primary">Add &amp; Switch</button>
+      </form>
+      <p class="user-create-error" id="userCreateError" hidden></p>
+    </div>
+  </div>
+
+  <!-- Fullscreen Game Screen -->
+  <div id="gameScreen" class="game-screen hidden" aria-hidden="true">
+    <header class="game-screen-header">
+      <button class="game-screen-back" id="gameBack" aria-label="Exit game">
+        <span aria-hidden="true">←</span> Exit
+      </button>
+      <div class="game-screen-title-wrap">
+        <span class="game-screen-icon" id="gameScreenIcon"></span>
+        <div>
+          <h2 class="game-screen-title" id="gameScreenTitle"></h2>
+          <p class="game-screen-sub" id="gameScreenSub"></p>
+        </div>
+      </div>
+      <button class="game-screen-rules-btn" id="gameRulesToggle" aria-expanded="false" aria-controls="gameInstructions">
+        📖 Rules
+      </button>
+    </header>
+
+    <div class="game-screen-layout">
+      <aside class="game-instructions" id="gameInstructions" aria-label="Game rules and instructions">
+        <div class="game-instructions-inner" id="gameInstructionsContent"></div>
+      </aside>
+      <main class="game-stage" id="gameStage">
+        <div class="game-stage-loading" id="gameStageLoading">Loading game…</div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

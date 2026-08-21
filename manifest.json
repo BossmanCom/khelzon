@@ -1,0 +1,18 @@
+{
+  "name": "KhelZon — Solo Arcade",
+  "short_name": "KhelZon",
+  "description": "Single-player browser arcade games. Marble quests, puzzles, and action — play instantly offline.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f0f1a",
+  "theme_color": "#1a1a2e",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%231a1a2e' width='192' height='192' rx='32'/><text x='96' y='130' font-size='100' text-anchor='middle' fill='%23f4a261'>🎯</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
