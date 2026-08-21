@@ -1,6 +1,7 @@
 import { gameRegistry, getTotalPlays, getGamesPlayedCount } from './gameRegistry.js';
 import { storage } from './storage.js';
 import { renderUserListHTML, escapeHtml } from './users.js';
+import { renderToolPair, syncThemeToggleUI } from './theme.js';
 
 const FOOTER = '© 2026 KHELZON. ALL RIGHTS RESERVED.';
 
@@ -16,7 +17,15 @@ export function getLobbyView() {
 }
 
 function lobbyShell(content) {
-  return `<div class="lobby-page">${content}<footer class="lobby-footer">${FOOTER}</footer></div>`;
+  return `
+    <div class="lobby-page">
+      <div class="lobby-top-bar">
+        ${renderToolPair('tool-btn--lobby')}
+      </div>
+      ${content}
+      <footer class="lobby-footer">${FOOTER}</footer>
+    </div>
+  `;
 }
 
 function lobbyBackBar(title) {
@@ -193,6 +202,7 @@ export function showLobbyView(view = 'main') {
   main.innerHTML = html;
   lobby.classList.remove('hidden', 'fade-out');
   lobby.setAttribute('aria-hidden', 'false');
+  syncThemeToggleUI();
 
   if (view === 'main') bindLobbyMain();
   else {

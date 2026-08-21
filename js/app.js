@@ -3,6 +3,7 @@ import { gameRegistry } from './gameRegistry.js';
 import { setupUsers } from './users.js';
 import { storage } from './storage.js';
 import { initLobby } from './lobby.js';
+import { initTheme, renderToolPair, syncThemeToggleUI } from './theme.js';
 
 async function registerSW() {
   if ('serviceWorker' in navigator) {
@@ -10,6 +11,14 @@ async function registerSW() {
       await navigator.serviceWorker.register('./sw.js');
     } catch { /* offline optional */ }
   }
+}
+
+function mountToolbars() {
+  const pair = renderToolPair();
+  document.getElementById('headerTools').innerHTML = pair;
+  document.getElementById('sidebarTools').innerHTML = pair;
+  document.getElementById('gameScreenTools').innerHTML = pair;
+  syncThemeToggleUI();
 }
 
 function updateOnlineStatus() {
@@ -58,6 +67,9 @@ function runSplash() {
 }
 
 async function boot() {
+  initTheme();
+  mountToolbars();
+
   updateOnlineStatus();
   window.addEventListener('online', updateOnlineStatus);
   window.addEventListener('offline', updateOnlineStatus);

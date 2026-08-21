@@ -6,6 +6,12 @@
   <meta name="description" content="KhelZon — Single-player browser arcade. Play marble quests, snake, puzzles and more instantly." />
   <meta name="theme-color" content="#1a1a2e" />
   <title>KhelZon — Solo Arcade Playground</title>
+  <script>
+    try {
+      var t = localStorage.getItem('khelzon_theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,7 +45,7 @@
       <button class="header-menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-        <a href="#/lobby" class="header-brand" id="brandLink">
+      <a href="#/lobby" class="header-brand" id="brandLink">
         <span class="brand-icon">🎯</span>
         <span class="brand-text">Khel<span>Zon</span></span>
       </a>
@@ -50,6 +56,7 @@
         <a href="#/about" class="nav-link" data-nav="about">About</a>
       </nav>
       <div class="header-actions">
+        <div class="header-tools" id="headerTools"></div>
         <button class="user-badge" id="userBadge" type="button" title="Switch player">
           <span class="user-badge-icon">👤</span>
           <span class="user-badge-name">Player</span>
@@ -75,13 +82,12 @@
           <a href="#/stats" class="sidebar-link" data-nav="stats">📊 My Stats</a>
           <a href="#/about" class="sidebar-link" data-nav="about">ℹ️ About</a>
         </nav>
+        <div class="sidebar-tools" id="sidebarTools"></div>
         <p class="sidebar-footer">Scores saved per player on this device</p>
       </div>
     </aside>
 
-    <main class="main" id="mainContent">
-      <!-- Views injected by router -->
-    </main>
+    <main class="main" id="mainContent"></main>
 
     <footer class="footer">
       <p>KhelZon &copy; 2026 · Scores saved locally per player · No cloud account needed</p>
@@ -119,9 +125,12 @@
           <p class="game-screen-sub" id="gameScreenSub"></p>
         </div>
       </div>
-      <button class="game-screen-rules-btn" id="gameRulesToggle" aria-expanded="false" aria-controls="gameInstructions">
-        📖 Rules
-      </button>
+      <div class="game-screen-actions">
+        <div class="game-screen-tools" id="gameScreenTools"></div>
+        <button class="game-screen-rules-btn" id="gameRulesToggle" aria-expanded="false" aria-controls="gameInstructions">
+          📖 Rules
+        </button>
+      </div>
     </header>
 
     <div class="game-screen-layout">
