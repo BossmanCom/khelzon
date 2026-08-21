@@ -72,6 +72,70 @@ export const storage = {
     this.set('profiles', profiles);
   },
 
+  _getProfilesRaw() {
+    return this._getProfiles();
+  },
+
+  _applyProfiles(profiles) {
+    if (!profiles?.users || !Object.keys(profiles.users).length) {
+      throw new Error('Invalid profile data.');
+    }
+    if (!profiles.users[profiles.activeUserId]) {
+      profiles.activeUserId = Object.keys(profiles.users)[0];
+    }
+    this._saveProfiles(profiles);
+  },
+
+  reloadFromDisk() {
+    this._notify();
+  },
+
+  _notifyExternal() {
+    this._notify();
+  },
+
+  mergeProfiles(incoming, theme) {
+    const current = this._getProfiles();
+    let merged = 0;
+
+    for (const user of Object.values(incoming.users || {})) {
+      const existing = Object.values(current.users).find(
+        u => u.id === user.id || u.name.toLowerCase() === user.name.toLowerCase()
+      );
+
+      if (!existing) {
+        current.users[user.id] = { ...user, scores: { ...user.scores } };
+        merged++;
+        continue;
+      }
+
+      merged++;
+      for (const [gameId, incomingScore] of Object.entries(user.scores || {})) {
+        const cur = existing.scores[gameId] ?? emptyScoreEntry();
+        const inc = incomingScore ?? emptyScoreEntry();
+        existing.scores[gameId] = {
+          best: Math.max(cur.best, inc.best),
+          plays: cur.plays + (inc.plays || 0),
+          lastPlayed: [cur.lastPlayed, inc.lastPlayed].filter(Boolean).sort().pop() ?? null,
+        };
+      }
+    }
+
+    if (incoming.activeUserId && current.users[incoming.activeUserId]) {
+      current.activeUserId = incoming.activeUserId;
+    }
+
+    this._saveProfiles(current);
+
+    if (theme === 'light' || theme === 'dark') {
+      try { localStorage.setItem('khelzon_theme', theme); } catch { /* ignore */ }
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+
+    this._notify();
+    return { merged, replaced: false };
+  },
+
   getUsers() {
     const { users } = this._getProfiles();
     return Object.values(users).sort((a, b) => a.name.localeCompare(b.name));

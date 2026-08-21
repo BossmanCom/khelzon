@@ -1,4 +1,5 @@
 import { storage } from './storage.js';
+import { renderSyncPanelHTML, bindSyncPanel } from './sync.js';
 
 export function updateUserBadge() {
   const el = document.getElementById('userBadge');
@@ -179,6 +180,8 @@ export function renderPlayersPage() {
         </form>
         <p class="user-create-error" id="userCreateErrorPage" hidden></p>
       </div>
+
+      ${renderSyncPanelHTML()}
     </div>
   `;
 }
@@ -200,4 +203,6 @@ export function bindPlayersPage(onSwitch) {
     input.value = '';
     onSwitch?.();
   });
+
+  bindSyncPanel(document.querySelector('.players-page .sync-panel'), onSwitch);
 }

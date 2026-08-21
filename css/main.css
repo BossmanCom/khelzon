@@ -183,6 +183,59 @@ body::before {
   margin-bottom: 1rem;
 }
 
+.pwa-install-lobby {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.pwa-install-lobby .install-svg,
+.pwa-install-btn .install-svg {
+  flex-shrink: 0;
+}
+
+.pwa-install-btn {
+  width: 36px;
+  height: 36px;
+}
+
+/* ── Backup / sync panel ── */
+.sync-panel {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.sync-panel-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-teal);
+  margin-bottom: 0.5rem;
+}
+
+.sync-panel-desc,
+.sync-panel-note {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.sync-panel-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+  font-family: var(--font-mono);
+}
+
+.sync-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
 @media (max-width: 768px) {
   .header-tools { display: none; }
 }

@@ -1,9 +1,11 @@
 import { initRouter, setupGameScreen, refreshCurrentView } from './router.js';
 import { gameRegistry } from './gameRegistry.js';
-import { setupUsers } from './users.js';
+import { setupUsers, updateUserBadge } from './users.js';
 import { storage } from './storage.js';
 import { initLobby } from './lobby.js';
 import { initTheme, renderToolPair, syncThemeToggleUI } from './theme.js';
+import { initPwa, renderHeaderInstallButton, refreshInstallButtons } from './pwa.js';
+import { initCrossTabSync } from './sync.js';
 
 async function registerSW() {
   if ('serviceWorker' in navigator) {
@@ -15,10 +17,12 @@ async function registerSW() {
 
 function mountToolbars() {
   const pair = renderToolPair();
-  document.getElementById('headerTools').innerHTML = pair;
+  const install = renderHeaderInstallButton();
+  document.getElementById('headerTools').innerHTML = install + pair;
   document.getElementById('sidebarTools').innerHTML = pair;
   document.getElementById('gameScreenTools').innerHTML = pair;
   syncThemeToggleUI();
+  refreshInstallButtons();
 }
 
 function updateOnlineStatus() {
@@ -68,6 +72,7 @@ function runSplash() {
 
 async function boot() {
   initTheme();
+  initPwa();
   mountToolbars();
 
   updateOnlineStatus();
@@ -79,6 +84,11 @@ async function boot() {
   storage.init();
   initLobby();
   setupUsers(refreshCurrentView);
+
+  initCrossTabSync(() => {
+    refreshCurrentView();
+    updateUserBadge();
+  });
 
   await runSplash();
 

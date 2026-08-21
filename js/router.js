@@ -222,6 +222,9 @@ function renderAboutPage() {
         <h2>Original Design</h2>
         <p>KhelZon features its own warm indigo-and-saffron visual identity, original game implementations, and single-player-only focus — a distinct experience from other browser arcades.</p>
 
+        <h2>Privacy &amp; data</h2>
+        <p>Scores are stored in your browser only. Export a backup from <strong>Players</strong> to move data to another device — nothing is uploaded to KhelZon servers. Optional browser sync (Chrome/Firefox) may copy site data across devices you sign into.</p>
+
         <h2>Open Source</h2>
         <p>KhelZon is open source under the MIT license. Contributions, bug reports, and game ideas are welcome on GitHub.</p>
         <p class="about-links">

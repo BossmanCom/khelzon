@@ -2,6 +2,8 @@ import { gameRegistry, getTotalPlays, getGamesPlayedCount } from './gameRegistry
 import { storage } from './storage.js';
 import { renderUserListHTML, escapeHtml } from './users.js';
 import { renderToolPair, syncThemeToggleUI } from './theme.js';
+import { renderInstallButton, refreshInstallButtons } from './pwa.js';
+import { renderSyncPanelHTML, bindSyncPanel } from './sync.js';
 
 const FOOTER = '© 2026 KHELZON. ALL RIGHTS RESERVED.';
 
@@ -58,6 +60,7 @@ export function renderLobbyMain() {
           <button type="button" class="btn btn-lobby-outline" id="lobbyAbout">
             <span class="lobby-btn-icon" aria-hidden="true">ⓘ</span> About
           </button>
+          ${renderInstallButton()}
           <button type="button" class="btn btn-lobby-square" id="lobbyPlayers" title="Players">
             <span aria-hidden="true">👤</span>
           </button>
@@ -152,6 +155,7 @@ export function renderLobbyPlayers() {
           <button type="submit" class="btn btn-lobby-enter btn-sm">Add Player</button>
         </form>
         <p class="user-create-error" id="lobbyUserCreateError" hidden></p>
+        ${renderSyncPanelHTML()}
         <p class="lobby-panel-note">${users.length} profile${users.length !== 1 ? 's' : ''} on this device. Each keeps separate scores.</p>
       </div>
     </div>
@@ -217,8 +221,12 @@ export function showLobbyView(view = 'main') {
   if (view === 'main') bindLobbyMain();
   else {
     bindLobbyBack();
-    if (view === 'players') bindLobbyPlayersForm();
+    if (view === 'players') {
+      bindLobbyPlayersForm();
+      bindSyncPanel(main.querySelector('.sync-panel'), () => showLobbyView('players'));
+    }
   }
+  refreshInstallButtons();
 }
 
 export function hideLobbyScreen() {

@@ -6,6 +6,8 @@ const ASSETS = [
   './css/games.css',
   './js/app.js',
   './js/theme.js',
+  './js/pwa.js',
+  './js/sync.js',
   './js/lobby.js',
   './js/router.js',
   './js/storage.js',

@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="KhelZon — Single-player browser arcade. Play marble quests, snake, puzzles and more instantly." />
   <meta name="theme-color" content="#1a1a2e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="KhelZon" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <title>KhelZon — Solo Arcade Playground</title>
   <script>
     try {
@@ -13,6 +16,7 @@
     } catch (e) {}
   </script>
   <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%231a1a2e' width='192' height='192' rx='32'/><text x='96' y='130' font-size='100' text-anchor='middle' fill='%23f4a261'>🎯</text></svg>" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,7 +32,7 @@
         <span></span><span></span><span></span>
       </div>
       <div class="splash-logo">Khel<span>Zon</span></div>
-      <p class="splash-tagline">Solo arcade · zero installs</p>
+      <p class="splash-tagline">Solo arcade · offline-ready</p>
       <div class="splash-bar"><div class="splash-bar-fill" id="splashFill"></div></div>
       <p class="splash-status" id="splashStatus">Loading games…</p>
     </div>
@@ -90,7 +94,7 @@
     <main class="main" id="mainContent"></main>
 
     <footer class="footer">
-      <p>KhelZon &copy; 2026 · Scores saved locally per player · No cloud account needed</p>
+      <p>KhelZon &copy; 2026 · Scores saved locally · Export backup from Players · No cloud account</p>
     </footer>
   </div>
 
