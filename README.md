@@ -1,10 +1,13 @@
 # KhelZon
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/demo-khelzon.pages.dev-2a9d8f)](https://khelzon.pages.dev/)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Issues](https://img.shields.io/github/issues/pradipNP/khelzon)](https://github.com/pradipNP/khelzon/issues)
 
 KhelZon is a browser-based single-player arcade built with HTML, CSS, and JavaScript. It runs without frameworks, build tools, or user accounts, and stores scores locally on each device.
+
+**Live demo:** [khelzon.pages.dev](https://khelzon.pages.dev/)
 
 ## Overview
 
@@ -28,7 +31,9 @@ KhelZon is a browser-based single-player arcade built with HTML, CSS, and JavaSc
 
 ## Getting Started
 
-ES modules require a local HTTP server.
+**Play online:** [https://khelzon.pages.dev](https://khelzon.pages.dev/)
+
+For local development, ES modules require a HTTP server.
 
 ```bash
 git clone https://github.com/pradipNP/khelzon.git
