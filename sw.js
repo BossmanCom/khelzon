@@ -1,4 +1,4 @@
-const CACHE = 'khelzon-v1';
+const CACHE = 'khelzon-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -15,6 +15,18 @@ const ASSETS = [
   './js/gameFit.js',
   './js/users.js',
   './manifest.json',
+  './js/games/marble-solo.js',
+  './js/games/snake-rush.js',
+  './js/games/cascade.js',
+  './js/games/memory-matrix.js',
+  './js/games/orbit-breaker.js',
+  './js/games/star-drift.js',
+  './js/games/tap-sequence.js',
+  './js/games/territory-clash.js',
+  './js/games/neon-dodge.js',
+  './js/games/slide-quest.js',
+  './js/games/meteor-run.js',
+  './js/games/target-tap.js',
 ];
 
 self.addEventListener('install', e => {

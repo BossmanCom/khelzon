@@ -105,9 +105,9 @@ export function renderLobbyAbout() {
 
         <h3>Games</h3>
         <ul class="lobby-list">
-          <li><strong>Marble Quest Solo</strong> — Jackaroo-inspired card &amp; marble race vs CPU</li>
-          <li><strong>Snake Rush, Orbit Breaker, Star Drift</strong> — Arcade action classics</li>
-          <li><strong>Number Cascade, Memory Matrix, Tap Sequence</strong> — Puzzles &amp; reflex</li>
+          <li><strong>Marble Quest Solo, Territory Clash</strong> — Strategy vs CPU</li>
+          <li><strong>Snake Rush, Neon Dodge, Orbit Breaker, Star Drift, Meteor Run</strong> — Arcade &amp; action</li>
+          <li><strong>Number Cascade, Memory Matrix, Slide Quest, Tap Sequence, Target Tap</strong> — Puzzles &amp; reflex</li>
         </ul>
 
         <h3>Technology</h3>

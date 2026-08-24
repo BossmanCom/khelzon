@@ -11,7 +11,7 @@ KhelZon is a browser-based single-player arcade built with HTML, CSS, and JavaSc
 
 ## Overview
 
-- Seven original single-player games, including a Jackaroo-inspired marble and card racer
+- Twelve original single-player games across Strategy, Arcade, Puzzle, Action, and Reflex
 - Welcome lobby with arcade entry, about section, and multi-profile player management
 - Light and dark themes with locally persisted preference
 - Progressive Web App with offline support and optional installation
@@ -22,12 +22,17 @@ KhelZon is a browser-based single-player arcade built with HTML, CSS, and JavaSc
 | Game | Type | Description |
 |------|------|-------------|
 | Marble Quest Solo | Strategy | Card-driven marble race against CPU (Jackaroo-inspired) |
+| Territory Clash | Strategy | Expand grid territory vs CPU |
 | Snake Rush | Arcade | Classic snake with progressive speed |
+| Neon Dodge | Arcade | Dodge falling blocks in three lanes |
+| Orbit Breaker | Arcade | Breakout-style brick smasher |
 | Number Cascade | Puzzle | Merge tiles to reach 4096 |
 | Memory Matrix | Puzzle | Match pairs against the clock |
-| Orbit Breaker | Arcade | Breakout-style brick smasher |
+| Slide Quest | Puzzle | Sliding tile puzzle (1–8) |
 | Star Drift | Action | Space shooter through asteroid waves |
+| Meteor Run | Action | Dodge meteor shower survival |
 | Tap Sequence | Reflex | Repeat an expanding color pattern |
+| Target Tap | Reflex | Tap targets before they vanish |
 
 ## Getting Started
 

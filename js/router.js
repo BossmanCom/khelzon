@@ -211,9 +211,9 @@ function renderAboutPage() {
 
         <h2>Games Included</h2>
         <ul>
-          <li><strong>Marble Quest Solo</strong> — A solo adaptation of the marble-and-card board game genre (similar to Jackaroo/Ludo mechanics) where you race an AI opponent.</li>
-          <li><strong>Snake Rush, Orbit Breaker, Star Drift</strong> — Classic arcade action reimagined.</li>
-          <li><strong>Number Cascade, Memory Matrix, Tap Sequence</strong> — Brain-teasing puzzles and reflex challenges.</li>
+          <li><strong>Marble Quest Solo, Territory Clash</strong> — Strategy games vs CPU.</li>
+          <li><strong>Snake Rush, Neon Dodge, Orbit Breaker, Star Drift, Meteor Run</strong> — Arcade action.</li>
+          <li><strong>Number Cascade, Memory Matrix, Slide Quest, Tap Sequence, Target Tap</strong> — Puzzles and reflex.</li>
         </ul>
 
         <h2>Tech Stack</h2>

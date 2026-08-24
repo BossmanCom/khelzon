@@ -408,6 +408,116 @@
 .mobile-dpad .dpad-down  { grid-column: 2; grid-row: 3; }
 .mobile-dpad .dpad-right { grid-column: 3; grid-row: 2; }
 
+/* Territory Clash */
+.tc-grid {
+  display: grid;
+  gap: 4px;
+  justify-content: center;
+  align-content: center;
+}
+
+.tc-cell {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-elevated);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tc-cell.tc-player {
+  background: rgba(233, 196, 106, 0.45);
+  border-color: var(--accent-gold);
+}
+
+.tc-cell.tc-cpu {
+  background: rgba(231, 111, 81, 0.35);
+  border-color: var(--accent-coral);
+}
+
+.tc-cell.tc-valid:hover {
+  border-color: var(--accent-saffron);
+  box-shadow: 0 0 12px rgba(244, 162, 97, 0.25);
+}
+
+.tc-hint, .sq-hint {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Slide Quest */
+.sq-grid {
+  display: grid;
+  gap: 6px;
+  justify-content: center;
+  align-content: center;
+}
+
+.sq-tile {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.sq-tile.sq-movable:hover {
+  border-color: var(--accent-teal);
+  background: rgba(42, 157, 143, 0.15);
+}
+
+.sq-tile.sq-empty {
+  visibility: hidden;
+  cursor: default;
+}
+
+/* Target Tap */
+.tt-arena {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  background: var(--bg-card);
+  border: 2px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.tt-idle {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.tt-target {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-gold);
+  background: radial-gradient(circle, var(--accent-saffron), var(--accent-coral));
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(244, 162, 97, 0.45);
+  animation: tt-pulse 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes tt-pulse {
+  from { transform: scale(0.92); opacity: 0.85; }
+  to { transform: scale(1); opacity: 1; }
+}
+
 @media (max-width: 640px) {
   .mobile-dpad { display: grid; justify-content: center; }
   .marble-card { width: 40px; height: 54px; }
