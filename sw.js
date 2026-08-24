@@ -15,6 +15,7 @@ const ASSETS = [
   './js/gameFit.js',
   './js/users.js',
   './manifest.json',
+  './assets/og-image.png',
   './js/games/marble-solo.js',
   './js/games/snake-rush.js',
   './js/games/cascade.js',
